@@ -13,6 +13,31 @@ namespace Lemonade_Stand
         int sugar;
         int icecubes;
 
+
+        public int Cups
+        {
+            get
+            {
+                return cups;
+            }
+            set
+            {
+                cups = value;
+            }
+        }
+
+        public int Lemons
+        {
+            get
+            {
+                return lemons;
+            }
+            set
+            {
+                lemons = value;
+            }
+        }
+
         public int Sugar
         {
             get
@@ -25,12 +50,28 @@ namespace Lemonade_Stand
             }
         }
 
-       
-        
-        
-        
-        
-        
+        public int IceCubes
+        {
+            get
+            {
+                return icecubes;
+            }
+            set
+            {
+                icecubes = value;
+            }
+        }
+
+
+        public void DisplayInventory()
+        {
+            Console.WriteLine("You have " + Lemons + "lemons in your inventory");
+            Console.WriteLine("You have " + Sugar + "cups of sugar in your inventory");
+            Console.WriteLine("You have " + IceCubes + "icecubes in your inventory");
+            Console.WriteLine("You have " + Cups + "cups in your inventory");
+
+        }
+
         //totalCups = purchasedCups - recipe1.cupsUsed;
     }
 }

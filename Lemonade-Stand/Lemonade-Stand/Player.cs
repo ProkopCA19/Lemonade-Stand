@@ -144,9 +144,9 @@ namespace Lemonade_Stand
             if (Int32.Parse(Console.ReadLine()) <= 100 && Int32.Parse(Console.ReadLine()) > 0)
             {
 
-                recipe1.lemonsUsed += Int32.Parse(Console.ReadLine());
-                inventory1.Lemons -= recipe1.lemonsUsed;
-                return recipe1.lemonsUsed;
+                recipe1.LemonsUsed += Int32.Parse(Console.ReadLine());
+                inventory1.Lemons -= recipe1.LemonsUsed;
+                return recipe1.LemonsUsed;
             }
             else
             {
@@ -160,9 +160,9 @@ namespace Lemonade_Stand
             if (Int32.Parse(Console.ReadLine()) <= 100 && Int32.Parse(Console.ReadLine()) > 0)
             {
 
-                recipe1.sugarUsed += Int32.Parse(Console.ReadLine());
-                inventory1.Sugar -= recipe1.sugarUsed;
-                return recipe1.sugarUsed;
+                recipe1.SugarUsed += Int32.Parse(Console.ReadLine());
+                inventory1.Sugar -= recipe1.SugarUsed;
+                return recipe1.SugarUsed;
             }
             else
             {
@@ -175,9 +175,9 @@ namespace Lemonade_Stand
             Console.WriteLine("How many icecubes would you like to use per cup? Enter a number between 1 and 100");
             if (Int32.Parse(Console.ReadLine()) <= 100 && Int32.Parse(Console.ReadLine()) > 0)
             {
-                recipe1.iceUsed += Int32.Parse(Console.ReadLine());
-                inventory1.IceCubes -= recipe1.iceUsed;
-                return recipe1.iceUsed;
+                recipe1.IceUsed += Int32.Parse(Console.ReadLine());
+                inventory1.IceCubes -= recipe1.IceUsed;
+                return recipe1.IceUsed;
             }
             else
             {
