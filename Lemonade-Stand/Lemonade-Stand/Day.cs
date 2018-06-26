@@ -8,6 +8,30 @@ namespace Lemonade_Stand
 {
     class Day
     {
+        private Weather weather = new Weather();
+            
+
+        public void DisplayPredictedWeather()
+        {
+           weather.DisplayPredictedWeather();
+        }
+        public void DisplayPredictedTemp()
+        {
+            weather.DisplayActualWeather();
+        }
+       
+       
+        
+        
+      
+
+
+
+
+
+
         double runningTotal;
+
+        
     }
 }

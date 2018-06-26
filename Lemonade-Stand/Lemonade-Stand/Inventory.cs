@@ -8,11 +8,29 @@ namespace Lemonade_Stand
 {
     class Inventory
     {
-        double cups;
-        double lemons;
-        double sugar;
-        double icecubes;
+        int cups;
+        int lemons;
+        int sugar;
+        int icecubes;
 
-        totalCups = purchasedCups - recipe1.cupsUsed;
+        public int Sugar
+        {
+            get
+            {
+                return sugar;
+            }
+            set
+            {
+                sugar = value;
+            }
+        }
+
+       
+        
+        
+        
+        
+        
+        //totalCups = purchasedCups - recipe1.cupsUsed;
     }
 }

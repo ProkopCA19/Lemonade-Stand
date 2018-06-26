@@ -9,10 +9,12 @@ namespace Lemonade_Stand
     class Game
     {
         //display weather conditions
-        //buy inventory
-        //set recipe
-        //have customers buy
+        //buy inventory, subtract money from allowance
+        //set recipe, subtract used ingredients from purchased ingredients
+        //have customers buy cups of lemonade
         //get total sales
         //get running total
+        //buy more inventory
+        //reset recipe
     }
 }
