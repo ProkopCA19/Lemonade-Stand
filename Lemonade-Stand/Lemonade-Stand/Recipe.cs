@@ -8,10 +8,11 @@ namespace Lemonade_Stand
 {
     class Recipe
     {
-        //int cupsUsed;
+        double cupsUsed;
          int lemonsUsed;
          int sugarUsed;
          int iceUsed;
+        double pricePerCup;
 
         public int LemonsUsed
         {
@@ -49,8 +50,33 @@ namespace Lemonade_Stand
             }
         }
 
+        public double PricePerCup
+        {
+            get
+            {
+                return pricePerCup;
+            }
+            set
+            {
+                pricePerCup = value;
+            }
+        }
+
+        public double CupsUsed
+        {
+            get
+            {
+                return cupsUsed;
+            }
+            set
+            {
+                cupsUsed = value;
+            }
+        }
+
        public void DisplayRecipe()
         {
+          
             Console.WriteLine("You have " + LemonsUsed + " lemons per pitcher" );
             Console.WriteLine("You have " + SugarUsed + "cups of sugar per pitcher");
             Console.WriteLine("You have " + IceUsed + "icecubes per cup");

@@ -14,23 +14,35 @@ namespace Lemonade_Stand
         string actualDailyConditions;
         string predictedDailyConditions;
 
-        List<string> conditions = new List<string>() { "sunny", "overcast", "rainy", "hazy", "foggy" };
+        public List<string> conditions = new List<string>() { "sunny", "cloudy", "rainy", "windy", "foggy" };
 
-        //public int DailyTemperature
-        //{
-        //    get
-        //    {
-        //        return actualDailyTemperature;
-        //    }
-        //}
 
-        //public string DailyConditions
-        //{
-        //    get
-        //    {
-        //        return actualDailyConditions;
-        //    }
-        //}
+        public int ActualDailyTemperature
+        {
+            get
+            {
+                return actualDailyTemperature;
+            }
+            set
+            {
+                actualDailyTemperature = value;
+            }
+        }
+
+        public string ActualDailyConditions
+        {
+            get
+            {
+                return actualDailyConditions;
+            }
+            set
+            {
+                actualDailyConditions = value;
+            }
+        }
+
+
+      
 
         int GetPredictedTemperature()
         {

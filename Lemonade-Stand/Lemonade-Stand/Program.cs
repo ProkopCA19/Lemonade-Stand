@@ -10,9 +10,7 @@ namespace Lemonade_Stand
     {
         static void Main(string[] args)
         {
-            Inventory inventory = new Inventory();
-            inventory.DisplayInventory();
-            Console.ReadLine();
+            
 
         }
     }

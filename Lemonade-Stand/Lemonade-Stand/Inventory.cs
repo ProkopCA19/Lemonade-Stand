@@ -65,10 +65,10 @@ namespace Lemonade_Stand
 
         public void DisplayInventory()
         {
-            Console.WriteLine("You have " + Lemons + "lemons in your inventory");
-            Console.WriteLine("You have " + Sugar + "cups of sugar in your inventory");
-            Console.WriteLine("You have " + IceCubes + "icecubes in your inventory");
-            Console.WriteLine("You have " + Cups + "cups in your inventory");
+            Console.WriteLine("You have " + Lemons + " lemons in your inventory");
+            Console.WriteLine("You have " + Sugar + " cups of sugar in your inventory");
+            Console.WriteLine("You have " + IceCubes + " icecubes in your inventory");
+            Console.WriteLine("You have " + Cups + " cups in your inventory");
 
         }
 

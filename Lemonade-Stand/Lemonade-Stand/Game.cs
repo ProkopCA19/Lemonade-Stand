@@ -8,6 +8,8 @@ namespace Lemonade_Stand
 {
     class Game
     {
+
+
         //display weather conditions
         //buy inventory, subtract money from allowance
         //set recipe, subtract used ingredients from purchased ingredients

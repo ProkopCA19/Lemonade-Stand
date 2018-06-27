@@ -10,12 +10,20 @@ namespace Lemonade_Stand
     {
         string playerName;
         double balance = 20.00;
-        int lemonsUsed;
-        int sugarUsed;
-        int cupsUsed;
-        int iceUsed;
         Recipe recipe1 = new Recipe();
         Inventory inventory1 = new Inventory();
+
+        public double Balance
+        {
+            get
+            {
+                return balance;
+            }
+            set
+            {
+                balance = value;
+            }
+        }
 
 
 
@@ -183,6 +191,22 @@ namespace Lemonade_Stand
             {
                 return DecideIcePerCup();
             }
+        }
+
+        double DecidePricePerCup()
+        {
+            Console.WriteLine("How much would you like to charge for one cup? Set a price under $3.00");
+            if (Double.Parse(Console.ReadLine()) < 3.00)
+            {
+                recipe1.PricePerCup = Double.Parse(Console.ReadLine());
+                return recipe1.PricePerCup;
+            }
+            else
+            {
+                return DecidePricePerCup();
+            }
+            
+            
         }
     }
 }

@@ -8,30 +8,34 @@ namespace Lemonade_Stand
 {
     class Day
     {
-        private Weather weather = new Weather();
-            
+        Weather weather = new Weather();
+        Customer customer = new Customer();
+        Store store = new Store();
 
         public void DisplayPredictedWeather()
         {
-           weather.DisplayPredictedWeather();
+            weather.DisplayPredictedWeather();
         }
-        public void DisplayPredictedTemp()
+        public void SetDailyWeather()
         {
-            weather.DisplayActualWeather();
+            weather.GetActualTemperature();
+            weather.GetActualDailyConditions();
         }
-       
-       
-        
-        
-      
+        public void GetCustomerInformation()
+        {
+            customer.AddCustomers(weather); 
+            customer.SetCustomerCash();
+            customer.HasDemandByPrice();
+            customer.HasDamandByConditions();
+            customer.HasDemandByRecipe();
+            customer.GetCustomersThatPurchase();
+        }
 
+        public void GetDailySalesAndBalance()
+        {
+            store.CalculateDailyBalance();
+            store.CalculateDailyBalance();
+        }
 
-
-
-
-
-        double runningTotal;
-
-        
     }
 }
