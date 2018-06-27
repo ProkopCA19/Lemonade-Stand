@@ -8,10 +8,10 @@ namespace Lemonade_Stand
 {
     class Player
     {
-        string playerName;
+        //string playerName;
         double balance = 20.00;
         Recipe recipe1 = new Recipe();
-        Inventory inventory1 = new Inventory();
+        Inventory inventory = new Inventory();
 
         public double Balance
         {
@@ -25,10 +25,13 @@ namespace Lemonade_Stand
             }
         }
 
+        public void DisplayBalance()
+        {
+            Console.WriteLine("Your balance is $" + balance);
+        }
 
 
-
-        void DecidesHowMuchSugarToBuy()
+       public void DecidesHowMuchSugarToBuy()
         {
             Console.WriteLine("How many cups of sugar would you like to buy?");
             Console.WriteLine("If you want to purchase 10 cups for 1.00 press 1, if you want to purchase 20 cups for 1.50 press 2, if you want to purcase 50 cups for 2.50 press 3");
@@ -36,15 +39,15 @@ namespace Lemonade_Stand
            switch(Console.ReadLine())
             {
                 case "1":
-                    inventory1.Sugar += 10;
+                    inventory.Sugar += 10;
                     balance -= 1.00;
                     break;
                 case "2":
-                    inventory1.Sugar += 20;
+                    inventory.Sugar += 20;
                     balance -= 1.50;
                     break;
                 case "3":
-                    inventory1.Sugar += 50;
+                    inventory.Sugar += 50;
                     balance -= 2.50;
                     break;
                 default:
@@ -55,7 +58,7 @@ namespace Lemonade_Stand
             }
         }
 
-        void DecidesHowManyLemonsToBuy()
+        public void DecidesHowManyLemonsToBuy()
         {
             Console.WriteLine("How many lemons would you like to buy?");
             Console.WriteLine("If you want to purchase 10 lemons for 2.00 press 1, if you want to purchase 20 lemons for 2.50 press 2, if you want to purcase 50 lemons for 4.00 press 3");
@@ -63,15 +66,15 @@ namespace Lemonade_Stand
             switch (Console.ReadLine())
             {
                 case "1":
-                    inventory1.Lemons += 10;
+                    inventory.Lemons += 10;
                     balance -= 2.00;
                     break;
                 case "2":
-                    inventory1.Lemons += 20;
+                    inventory.Lemons += 20;
                     balance -= 2.50;
                     break;
                 case "3":
-                    inventory1.Sugar += 50;
+                    inventory.Sugar += 50;
                     balance -= 4.00;
                     break;
                 default:
@@ -82,7 +85,7 @@ namespace Lemonade_Stand
             }
         }
 
-        void DecidesHowManyCupsToBuy()
+        public void DecidesHowManyCupsToBuy()
         {
             Console.WriteLine("How many cups would you like to buy?");
             Console.WriteLine("If you want to purchase 50 cups for 3.00 press 1, if you want to purchase 100 cups for 4.50 press 2, if you want to purcase 150 cups for 5.00 press 3");
@@ -90,15 +93,15 @@ namespace Lemonade_Stand
             switch (Console.ReadLine())
             {
                 case "1":
-                    inventory1.Cups += 50;
+                    inventory.Cups += 50;
                     balance -= 3.00;
                     break;
                 case "2":
-                    inventory1.Cups += 100;
+                    inventory.Cups += 100;
                     balance -= 4.50;
                     break;
                 case "3":
-                    inventory1.Cups += 150;
+                    inventory.Cups += 150;
                     balance -= 5.00;
                     break;
                 default:
@@ -109,7 +112,7 @@ namespace Lemonade_Stand
             }
         }
 
-        void DecidesHowMuchIceToBuy()
+        public void DecidesHowMuchIceToBuy()
         {
             Console.WriteLine("How much ice would you like to buy?");
             Console.WriteLine("If you want to purchase 100 cubes for 2.00 press 1, if you want to purchase 200 cubes for 3.00 press 2, if you want to purcase 300 cubes for 4.00 press 3");
@@ -117,15 +120,15 @@ namespace Lemonade_Stand
             switch (Console.ReadLine())
             {
                 case "1":
-                    inventory1.IceCubes += 100;
+                    inventory.IceCubes += 100;
                     balance -= 2.00;
                     break;
                 case "2":
-                    inventory1.IceCubes += 200;
+                    inventory.IceCubes += 200;
                     balance -= 3.00;
                     break;
                 case "3":
-                    inventory1.IceCubes += 300;
+                    inventory.IceCubes += 300;
                     balance -= 4.00;
                     break;
                 default:
@@ -145,64 +148,68 @@ namespace Lemonade_Stand
 
 
 
-        int DecideHowManyLemonsPerPitcher()
+        public void DecideHowManyLemonsPerPitcher()
         {
-            Console.WriteLine("How many lemons would you like to use in a pitcher? Enter a number between 1 and 100");
+            Console.WriteLine("How many lemons would you like to use in a pitcher?");
 
-            if (Int32.Parse(Console.ReadLine()) <= 100 && Int32.Parse(Console.ReadLine()) > 0)
+            try
             {
 
                 recipe1.LemonsUsed += Int32.Parse(Console.ReadLine());
-                inventory1.Lemons -= recipe1.LemonsUsed;
-                return recipe1.LemonsUsed;
+                inventory.Lemons -= recipe1.LemonsUsed;
+                
             }
-            else
+            catch
             {
-                return DecideHowManyLemonsPerPitcher();
+                Console.WriteLine("Not a valid number, try again!");
+                 DecideHowManyLemonsPerPitcher();
             }
         }
 
-        int DecideHowMuchSugarPerPitcher()
+        public void DecideHowMuchSugarPerPitcher()
         {
-            Console.WriteLine("How many cups of sugar would you like to use in a pitcher? Enter a number between 1 and 100");
-            if (Int32.Parse(Console.ReadLine()) <= 100 && Int32.Parse(Console.ReadLine()) > 0)
+            Console.WriteLine("How many cups of sugar would you like to use in a pitcher?");
+            try
             {
 
                 recipe1.SugarUsed += Int32.Parse(Console.ReadLine());
-                inventory1.Sugar -= recipe1.SugarUsed;
-                return recipe1.SugarUsed;
+                inventory.Sugar -= recipe1.SugarUsed;
+                
             }
-            else
+            catch
             {
-                return DecideHowMuchSugarPerPitcher();
+                Console.WriteLine("Not a valid number, try again!");
+                DecideHowMuchSugarPerPitcher();
             }
         }
 
-        int DecideIcePerCup()
+        public void DecideIcePerCup()
         {
-            Console.WriteLine("How many icecubes would you like to use per cup? Enter a number between 1 and 100");
-            if (Int32.Parse(Console.ReadLine()) <= 100 && Int32.Parse(Console.ReadLine()) > 0)
+            Console.WriteLine("How many icecubes would you like to use per cup?");
+            try
             {
                 recipe1.IceUsed += Int32.Parse(Console.ReadLine());
-                inventory1.IceCubes -= recipe1.IceUsed;
-                return recipe1.IceUsed;
+                inventory.IceCubes -= recipe1.IceUsed;
+                
             }
-            else
+            catch
             {
-                return DecideIcePerCup();
+                Console.WriteLine("Not a valid number, try again!");
+                DecideIcePerCup();
             }
         }
 
-        double DecidePricePerCup()
+        public double DecidePricePerCup()
         {
-            Console.WriteLine("How much would you like to charge for one cup? Set a price under $3.00");
-            if (Double.Parse(Console.ReadLine()) < 3.00)
+            Console.WriteLine("How much would you like to charge for one cup?");
+            try
             {
                 recipe1.PricePerCup = Double.Parse(Console.ReadLine());
                 return recipe1.PricePerCup;
             }
-            else
+            catch
             {
+                Console.WriteLine("Not a valid number, try again!");
                 return DecidePricePerCup();
             }
             

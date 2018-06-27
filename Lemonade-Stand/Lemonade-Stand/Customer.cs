@@ -135,27 +135,33 @@ namespace Lemonade_Stand
 
         public void GetCustomersThatPurchase()
         {
-        if (customerDemand > 80 && customerCash > recipe.PricePerCup)
+            if (customerDemand > 80 && customerCash > recipe.PricePerCup)
             {
-            customersThatBuy = rnd.Next(customer.Count - 10, customer.Count);
-                recipe.CupsUsed = CustomersThatBuy;
+                customersThatBuy = rnd.Next(customer.Count - 10, customer.Count);
+                recipe.CupsUsed = customersThatBuy;
             }
-        else if (customerDemand < 80 && customerDemand > 60 && customerCash > recipe.PricePerCup)
+            else if (customerDemand < 80 && customerDemand > 60 && customerCash > recipe.PricePerCup)
             {
-            customersThatBuy = rnd.Next(customer.Count - 15, customer.Count);
-                recipe.CupsUsed = CustomersThatBuy;
+                customersThatBuy = rnd.Next(customer.Count - 15, customer.Count);
+                recipe.CupsUsed = customersThatBuy;
             }
-        else if (customerDemand < 60 && customerDemand > 40 && customerCash > recipe.PricePerCup)
+            else if (customerDemand < 60 && customerDemand > 40 && customerCash > recipe.PricePerCup)
             {
                 customersThatBuy = rnd.Next(customer.Count - 20, customer.Count);
-                recipe.CupsUsed = CustomersThatBuy;
+                recipe.CupsUsed = customersThatBuy;
             }
-        else if (customerDemand < 40 && customerCash > recipe.PricePerCup)
+            else if (customerDemand < 40 && customerCash > recipe.PricePerCup)
             {
                 customersThatBuy = rnd.Next(customer.Count - 25, customer.Count);
-                recipe.CupsUsed = CustomersThatBuy;
+                recipe.CupsUsed = customersThatBuy;
             }
+        }
 
+        public void DisplayTotalCustomersForTheDay()
+        {
+            Console.WriteLine("You had " + CustomersThatBuy + "customers buy a cup of lemonade from you today");
+        }
 }
+    
     }
-}
+

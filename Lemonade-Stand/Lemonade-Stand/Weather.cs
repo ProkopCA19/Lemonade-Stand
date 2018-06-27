@@ -52,7 +52,7 @@ namespace Lemonade_Stand
 
         public int GetActualTemperature()
         {
-            actualDailyTemperature = rnd.Next(GetPredictedTemperature() - 10, GetPredictedTemperature() + 10);
+            actualDailyTemperature = rnd.Next(predictedDailyTemperature - 10, predictedDailyTemperature + 10);
             return actualDailyTemperature;
         }
 

@@ -31,5 +31,14 @@ namespace Lemonade_Stand
 
         }
 
+        public void DisplayDailySales()
+        {
+            Console.WriteLine("You made $" + dailySales + "today");
+        }
+
+        public void DisplayDailyBalance()
+        {
+            Console.WriteLine("Your balance is $" + player.Balance);
+        }
     }
 }

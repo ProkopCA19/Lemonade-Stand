@@ -8,10 +8,10 @@ namespace Lemonade_Stand
 {
     class Inventory
     {
-        int cups;
-        int lemons;
-        int sugar;
-        int icecubes;
+        int cups = 0;
+        int lemons = 0;
+        int sugar = 0;
+        int icecubes = 0;
 
 
         public int Cups
@@ -61,17 +61,25 @@ namespace Lemonade_Stand
                 icecubes = value;
             }
         }
+        
 
+        public Inventory()
+        {
+            this.sugar = Sugar;
+            this.cups = Cups;
+            this.lemons = Lemons;
+            this.icecubes = IceCubes;
+        }
 
         public void DisplayInventory()
         {
-            Console.WriteLine("You have " + Lemons + " lemons in your inventory");
-            Console.WriteLine("You have " + Sugar + " cups of sugar in your inventory");
-            Console.WriteLine("You have " + IceCubes + " icecubes in your inventory");
-            Console.WriteLine("You have " + Cups + " cups in your inventory");
+            Console.WriteLine("You now have " + Lemons + " lemons in your inventory");
+            Console.WriteLine("You now have " + Sugar + " cups of sugar in your inventory");
+            Console.WriteLine("You now have " + IceCubes + " icecubes in your inventory");
+            Console.WriteLine("You now have " + Cups + " cups in your inventory");
 
         }
 
-        //totalCups = purchasedCups - recipe1.cupsUsed;
+        
     }
 }
