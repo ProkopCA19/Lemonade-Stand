@@ -10,8 +10,8 @@ namespace Lemonade_Stand
     {
         //string playerName;
         double balance = 20.00;
-        Recipe recipe1 = new Recipe();
-        Inventory inventory = new Inventory();
+        Recipe recipe = new Recipe();
+        public Inventory inventory = new Inventory();
 
         public double Balance
         {
@@ -24,6 +24,14 @@ namespace Lemonade_Stand
                 balance = value;
             }
         }
+
+
+        //Constructor
+        public Player()
+        {
+           
+        }
+
 
         public void DisplayBalance()
         {
@@ -74,7 +82,7 @@ namespace Lemonade_Stand
                     balance -= 2.50;
                     break;
                 case "3":
-                    inventory.Sugar += 50;
+                    inventory.Lemons += 50;
                     balance -= 4.00;
                     break;
                 default:
@@ -155,8 +163,8 @@ namespace Lemonade_Stand
             try
             {
 
-                recipe1.LemonsUsed += Int32.Parse(Console.ReadLine());
-                inventory.Lemons -= recipe1.LemonsUsed;
+                recipe.LemonsUsed += Int32.Parse(Console.ReadLine());
+                inventory.Lemons -= recipe.LemonsUsed;
                 
             }
             catch
@@ -172,8 +180,8 @@ namespace Lemonade_Stand
             try
             {
 
-                recipe1.SugarUsed += Int32.Parse(Console.ReadLine());
-                inventory.Sugar -= recipe1.SugarUsed;
+                recipe.SugarUsed += Int32.Parse(Console.ReadLine());
+                inventory.Sugar -= recipe.SugarUsed;
                 
             }
             catch
@@ -188,8 +196,8 @@ namespace Lemonade_Stand
             Console.WriteLine("How many icecubes would you like to use per cup?");
             try
             {
-                recipe1.IceUsed += Int32.Parse(Console.ReadLine());
-                inventory.IceCubes -= recipe1.IceUsed;
+                recipe.IceUsed += Int32.Parse(Console.ReadLine());
+                inventory.IceCubes -= recipe.IceUsed;
                 
             }
             catch
@@ -204,8 +212,8 @@ namespace Lemonade_Stand
             Console.WriteLine("How much would you like to charge for one cup?");
             try
             {
-                recipe1.PricePerCup = Double.Parse(Console.ReadLine());
-                return recipe1.PricePerCup;
+                recipe.PricePerCup = Double.Parse(Console.ReadLine());
+                return recipe.PricePerCup;
             }
             catch
             {

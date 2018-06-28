@@ -159,7 +159,7 @@ namespace Lemonade_Stand
 
         public void DisplayTotalCustomersForTheDay()
         {
-            Console.WriteLine("You had " + CustomersThatBuy + "customers buy a cup of lemonade from you today");
+            Console.WriteLine("You had " + CustomersThatBuy + " customers buy a cup of lemonade from you today");
         }
 }
     

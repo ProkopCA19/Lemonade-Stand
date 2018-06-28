@@ -9,18 +9,16 @@ namespace Lemonade_Stand
     class Game
     {
         Day day = new Day();
-        Weather weather = new Weather();
+       // Weather weather = new Weather();
         Player player = new Player();
         Customer customer = new Customer();
-        Recipe recipe = new Recipe();
-        Inventory inventory = new Inventory();
-        Store store = new Store();
+       // Recipe recipe = new Recipe();
+        // Inventory inventory = new Inventory();
 
-       public void RunGame()
+        public void RunGame()
         {
             Console.WriteLine("Welcome to lemonade stand!");
-            Console.WriteLine("");
-            weather.DisplayPredictedWeather();
+            //display predicted weather
             Console.WriteLine("");
             player.DisplayBalance();
             Console.WriteLine("");
@@ -28,7 +26,7 @@ namespace Lemonade_Stand
             player.DecidesHowManyLemonsToBuy();
             player.DecidesHowMuchSugarToBuy();
             player.DecidesHowMuchIceToBuy();
-            inventory.DisplayInventory();
+            player.inventory.DisplayInventory();
             Console.WriteLine("");
             Console.WriteLine("Now its time to make your recipe!");
             Console.WriteLine("");
@@ -40,28 +38,17 @@ namespace Lemonade_Stand
             Console.WriteLine("");
             player.DecidePricePerCup();
             Console.WriteLine("");
-            inventory.DisplayInventory();
+            player.inventory.DisplayInventory();
+            Console.WriteLine("");
+            player.DisplayBalance();
             Console.ReadLine();
-            day.SetDailyWeather();      ////stops working here
-            weather.DisplayActualWeather();
-            day.GetCustomerInformation();
-            customer.DisplayTotalCustomersForTheDay();
-            store.CalculateDailySales();
-            store.CalculateDailyBalance();
-            store.DisplayDailySales();
-            store.DisplayDailyBalance();
+            
+            day.SetDailyWeather();
+            //make new customer list
             
 
+
         }
-
-
-        //display weather conditions
-        //buy inventory, subtract money from allowance
-        //set recipe, subtract used ingredients from purchased ingredients
-        //have customers buy cups of lemonade
-        //get total sales
-        //get running total
-        //buy more inventory
-        //reset recipe
+        
     }
 }

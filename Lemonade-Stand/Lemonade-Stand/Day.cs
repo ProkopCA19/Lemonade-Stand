@@ -10,7 +10,11 @@ namespace Lemonade_Stand
     {
         Weather weather = new Weather();
         Customer customer = new Customer();
-        Store store = new Store();
+        double dailySales;
+       // List<Customer> customers = new List<Customer>();
+
+     
+
 
         public void DisplayPredictedWeather()
         {
@@ -21,8 +25,31 @@ namespace Lemonade_Stand
             weather.GetActualTemperature();
             weather.GetActualDailyConditions();
         }
+
+        //public List<Customer> AddCustomers(Weather weather)
+        //{
+        //    potentialCustomers = weather.ActualDailyTemperature / 2;
+        //    for (int i = 0; i < potentialCustomers; i++)
+        //    {
+        //        Customer newCustomer = new Customer();
+        //        customer.Add(newCustomer);
+        //        newCustomer.SetCustomerCash();
+        //    }
+        //    return customer;
+        //}
+
+
+
+
+
+
+
+
+
         public void GetCustomerInformation()
+
         {
+         
             customer.AddCustomers(weather); 
             customer.SetCustomerCash();
             customer.HasDemandByPrice();
@@ -31,11 +58,24 @@ namespace Lemonade_Stand
             customer.GetCustomersThatPurchase();
         }
 
-        public void GetDailySalesAndBalance()
+
+        public double CalculateDailySales(Recipe recipe) //move to day class
         {
-            store.CalculateDailyBalance();
-            store.CalculateDailyBalance();
+            dailySales = recipe.PricePerCup * recipe.CupsUsed;
+            return dailySales;
         }
+
+        public void DisplayDailySales()
+        {
+            Console.WriteLine("You made $" + dailySales + " today"); //move to day class
+        }
+
+        public void CalculateDailyBalance(Player player) //move to day class 
+        {
+            player.Balance += dailySales;
+
+        }
+
 
     }
 }
