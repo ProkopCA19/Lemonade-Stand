@@ -10,44 +10,49 @@ namespace Lemonade_Stand
     {
         Day day = new Day();
        // Weather weather = new Weather();
-        Player player = new Player();
+        public Player player = new Player();
         Customer customer = new Customer();
-       // Recipe recipe = new Recipe();
-        // Inventory inventory = new Inventory();
+        int i = 0;
+
+        // Recipe recipe = new Recipe();
+        //Inventory inventory = new Inventory();
 
         public void RunGame()
         {
+
             Console.WriteLine("Welcome to lemonade stand!");
-            //display predicted weather
-            Console.WriteLine("");
-            player.DisplayBalance();
-            Console.WriteLine("");
-            player.DecidesHowManyCupsToBuy();
-            player.DecidesHowManyLemonsToBuy();
-            player.DecidesHowMuchSugarToBuy();
-            player.DecidesHowMuchIceToBuy();
-            player.inventory.DisplayInventory();
-            Console.WriteLine("");
-            Console.WriteLine("Now its time to make your recipe!");
-            Console.WriteLine("");
-            player.DecideHowManyLemonsPerPitcher();
-            Console.WriteLine("");
-            player.DecideHowMuchSugarPerPitcher();
-            Console.WriteLine("");
-            player.DecideIcePerCup();
-            Console.WriteLine("");
-            player.DecidePricePerCup();
-            Console.WriteLine("");
-            player.inventory.DisplayInventory();
-            Console.WriteLine("");
-            player.DisplayBalance();
-            Console.ReadLine();
-            
-            day.SetDailyWeather();
-            //make new customer list
-            
+            while (i < day.NumberOfTotalDays)
+            {
 
+                Console.WriteLine("");
+                player.DisplayBalance();
+                Console.WriteLine("");
+                player.DecidesHowManyCupsToBuy();
+                player.DecidesHowManyLemonsToBuy();
+                player.DecidesHowMuchSugarToBuy();
+                player.DecidesHowMuchIceToBuy();
+                player.inventory.DisplayInventory();
+                Console.WriteLine("");
+                Console.WriteLine("Now its time to make your recipe!");
+                Console.WriteLine("");
+                player.DecideHowManyLemonsPerPitcher();
+                Console.WriteLine("");
+                player.DecideHowMuchSugarPerPitcher();
+                Console.WriteLine("");
+                player.DecideIcePerCup();
+                Console.WriteLine("");
+                player.DecidePricePerCup();
+                Console.WriteLine("");
+                player.inventory.DisplayInventory();
+                Console.WriteLine("");
+                player.DisplayBalance();
+                Console.ReadLine();
+                day.SetCustomerInformation(player);
+                i++;
 
+            }
+
+            Console.WriteLine("Youre done!");
         }
         
     }

@@ -9,8 +9,8 @@ namespace Lemonade_Stand
     class Customer
     {
         int customerDemand = 100;
-        Recipe recipe = new Recipe();
-        Weather weather = new Weather();
+        //Recipe recipe = new Recipe();
+        //Weather weather = new Weather();
         Random rnd = new Random();
         public List<Customer> customer = new List<Customer>();
         int potentialCustomers;
@@ -42,14 +42,15 @@ namespace Lemonade_Stand
             for (int i = 0; i < potentialCustomers; i++)
             {
                 Customer newCustomer = new Customer();
-                customer.Add(newCustomer);
                 newCustomer.SetCustomerCash();
+                customer.Add(newCustomer);
+                
             }
             return customer;
         }
 
 
-        public void HasDemandByPrice()
+        public void SetDemandByPrice(Recipe recipe)
         {
             if (recipe.PricePerCup >= 3.00 && recipe.PricePerCup <= 5.00)
             {
@@ -84,7 +85,7 @@ namespace Lemonade_Stand
         
 
 
-        public void HasDamandByConditions()
+        public void SetDamandByConditions(Weather weather)
         {
             if (weather.ActualDailyConditions == "sunny")
             {
@@ -108,7 +109,7 @@ namespace Lemonade_Stand
             }
         }
 
-        public void HasDemandByRecipe()
+        public void SetDemandByRecipe(Recipe recipe)
         {
             if(recipe.LemonsUsed > recipe.SugarUsed)
             {
@@ -125,15 +126,7 @@ namespace Lemonade_Stand
            
         }
 
-
-
-
-
-
-
-
-
-        public void GetCustomersThatPurchase()
+        public void SetCustomersThatPurchase(Recipe recipe)
         {
             if (customerDemand > 80 && customerCash > recipe.PricePerCup)
             {

@@ -10,7 +10,7 @@ namespace Lemonade_Stand
     {
         //string playerName;
         double balance = 20.00;
-        Recipe recipe = new Recipe();
+        public Recipe recipe = new Recipe();
         public Inventory inventory = new Inventory();
 
         public double Balance

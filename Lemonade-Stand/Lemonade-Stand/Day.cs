@@ -11,6 +11,7 @@ namespace Lemonade_Stand
         Weather weather = new Weather();
         Customer customer = new Customer();
         double dailySales;
+      
        // List<Customer> customers = new List<Customer>();
 
      
@@ -46,16 +47,20 @@ namespace Lemonade_Stand
 
 
 
-        public void GetCustomerInformation()
+        public void SetCustomerInformation(Player player)
 
         {
-         
+            SetDailyWeather();
             customer.AddCustomers(weather); 
             customer.SetCustomerCash();
-            customer.HasDemandByPrice();
-            customer.HasDamandByConditions();
-            customer.HasDemandByRecipe();
-            customer.GetCustomersThatPurchase();
+            customer.SetDemandByPrice(player.recipe);
+            customer.SetDamandByConditions(weather);
+            customer.SetDemandByRecipe(player.recipe);
+            customer.SetCustomersThatPurchase(player.recipe);
+            CalculateDailySales(player.recipe);
+            DisplayDailySales();
+            CalculateDailyBalance(player);
+            DisplayPlayerBalance(player);
         }
 
 
@@ -76,6 +81,22 @@ namespace Lemonade_Stand
 
         }
 
+       public void DisplayPlayerBalance(Player player)
+        {
+            player.DisplayBalance();
+        }
 
+        int numOfTotalDays = 7;
+        public int NumberOfTotalDays
+        {
+            get
+            {
+                return numOfTotalDays;
+            }
+            set
+            {
+                numOfTotalDays = value;
+            }
+        }
     }
 }
