@@ -9,12 +9,65 @@ namespace Lemonade_Stand
     class Recipe
     {
         double cupsUsed;
-         int lemonsUsed;
-         int sugarUsed;
-         int iceUsed;
+        double lemonsUsed;
+        double sugarUsed;
+        double iceUsed;
+        int pitchers;
         double pricePerCup;
+        double lemonsPerCup;
+        double sugarPerCup;
+        double totalLemonsUsed;
+        double totalSugarUsed;
 
-        public int LemonsUsed
+        public double TotalLemonsUsed
+        {
+            get
+            {
+                return totalLemonsUsed;
+            }
+            set
+            {
+                totalLemonsUsed = value;
+            }
+        }
+
+        public double TotalSugarUsed
+        {
+            get
+            {
+                return totalSugarUsed;
+            }
+            set
+            {
+                totalSugarUsed = value;
+            }
+        }
+
+        public double LemonsPerCup
+        {
+            get
+            {
+                return lemonsPerCup;
+            }
+            set
+            {
+                lemonsPerCup = value;
+            }
+        }
+
+        public double SugarPerCup
+        {
+            get
+            {
+                return sugarPerCup;
+            }
+            set
+            {
+                sugarPerCup = value;
+            }
+        }
+
+        public double LemonsUsed
         {
             get
             {
@@ -26,7 +79,7 @@ namespace Lemonade_Stand
             }
         }
 
-        public int SugarUsed
+        public double SugarUsed
         {
             get
             {
@@ -38,7 +91,7 @@ namespace Lemonade_Stand
             }
         }
 
-        public int IceUsed
+        public double IceUsed
         {
             get
             {
@@ -74,16 +127,51 @@ namespace Lemonade_Stand
             }
         }
 
-       public void DisplayRecipe()
+        public int Pitchers
         {
-          
-            Console.WriteLine("You have " + LemonsUsed + " lemons per pitcher" );
+            get
+            {
+                return pitchers;
+            }
+            set
+            {
+                pitchers = value;
+
+            }
+        }
+
+        public double GetSugarPerCup()
+        {
+            double sugarPerCup = Math.Round(sugarUsed / 5); //there are 5 cups in a pitcher
+            return sugarPerCup;
+        }
+
+        public double GetLemonsPerCup()
+        {
+            double lemonsPerCup = Math.Round(lemonsUsed / 5);
+            return lemonsPerCup;
+        }
+
+        public double GetTotalLemonsUsedForTheDay()
+        {
+            double totalLemonsUsed = LemonsPerCup * CupsUsed;
+            return totalLemonsUsed;
+        }
+
+        public double GetTotalSugarUsedForTheDay()
+        {
+            double totalSugarUsed = SugarPerCup * CupsUsed;
+            return totalSugarUsed;
+        }
+        public void DisplayRecipe()
+        {
+            Console.WriteLine("You have " + LemonsUsed + " lemons per pitcher");
             Console.WriteLine("You have " + SugarUsed + "cups of sugar per pitcher");
             Console.WriteLine("You have " + IceUsed + "icecubes per cup");
         }
 
 
+
     }
 
-
-}
+    }

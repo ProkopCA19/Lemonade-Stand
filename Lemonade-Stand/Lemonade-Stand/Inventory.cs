@@ -8,14 +8,14 @@ namespace Lemonade_Stand
 {
     class Inventory
     {
-        int cups=0;
-        public int Cups{ get { return cups; }  set { cups = value; } }
-        int lemons=0;
-        public int Lemons { get { return lemons; } set { lemons = value; } }
-        int sugar=0;
-        public int Sugar { get { return sugar; } set { sugar = value; } }
-        int icecubes=0;
-        public int IceCubes { get { return icecubes; } set { icecubes = value; } }
+        double cups=0;
+        public double Cups{ get { return cups; }  set { cups = value; } }
+        double lemons=0;
+        public double Lemons { get { return lemons; } set { lemons = value; } }
+        double sugar=0;
+        public double Sugar { get { return sugar; } set { sugar = value; } }
+        double icecubes=0;
+        public double IceCubes { get { return icecubes; } set { icecubes = value; } }
 
 
 

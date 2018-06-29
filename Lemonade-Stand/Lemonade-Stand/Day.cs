@@ -8,13 +8,22 @@ namespace Lemonade_Stand
 {
     class Day
     {
-        Weather weather = new Weather();
-        Customer customer = new Customer();
+        //Weather weather = new Weather();
+        //Customer customer = new Customer();
+        List<Customer> customerList;
+        public Weather weather;
+        public Customer customer;
         double dailySales;
-      
-       // List<Customer> customers = new List<Customer>();
+        int potentialCustomers;
 
-     
+
+
+
+        public Day()
+        {
+            weather = new Weather();
+            customer = new Customer();
+        }
 
 
         public void DisplayPredictedWeather()
@@ -27,44 +36,49 @@ namespace Lemonade_Stand
             weather.GetActualDailyConditions();
         }
 
-        //public List<Customer> AddCustomers(Weather weather)
-        //{
-        //    potentialCustomers = weather.ActualDailyTemperature / 2;
-        //    for (int i = 0; i < potentialCustomers; i++)
-        //    {
-        //        Customer newCustomer = new Customer();
-        //        customer.Add(newCustomer);
-        //        newCustomer.SetCustomerCash();
-        //    }
-        //    return customer;
-        //}
-
-
-
-
-
-
-
 
 
         public void SetCustomerInformation(Player player)
 
         {
             SetDailyWeather();
-            customer.AddCustomers(weather); 
+            weather.DisplayActualWeather();
+            AddCustomers(weather);
             customer.SetCustomerCash();
             customer.SetDemandByPrice(player.recipe);
             customer.SetDamandByConditions(weather);
             customer.SetDemandByRecipe(player.recipe);
-            customer.SetCustomersThatPurchase(player.recipe);
+            customer.SetCustomersThatPurchase(player.recipe, player.inventory);
+            /////////////////////////////////////////////////////////////
+            player.recipe.GetTotalLemonsUsedForTheDay();
+            player.recipe.GetTotalSugarUsedForTheDay();
+            //
+            AdjustInventory(player, customer);
             CalculateDailySales(player.recipe);
             DisplayDailySales();
             CalculateDailyBalance(player);
             DisplayPlayerBalance(player);
+            Console.WriteLine("");
+            Console.WriteLine("");
         }
 
 
-        public double CalculateDailySales(Recipe recipe) //move to day class
+        public List<Customer> AddCustomers(Weather weather)
+        {
+            potentialCustomers = weather.ActualDailyTemperature / 2;
+            customerList = new List<Customer>();
+            for (int i = 0; i < potentialCustomers; i++)
+            {
+                Customer newCustomer = new Customer();
+                newCustomer.SetCustomerCash();
+                customerList.Add(newCustomer);
+
+            }
+            return customerList;
+        }
+
+
+        public double CalculateDailySales(Recipe recipe)
         {
             dailySales = recipe.PricePerCup * recipe.CupsUsed;
             return dailySales;
@@ -72,19 +86,22 @@ namespace Lemonade_Stand
 
         public void DisplayDailySales()
         {
-            Console.WriteLine("You made $" + dailySales + " today"); //move to day class
+            Console.WriteLine("You made $" + dailySales + " today");
         }
 
-        public void CalculateDailyBalance(Player player) //move to day class 
+        public void CalculateDailyBalance(Player player)
         {
             player.Balance += dailySales;
 
         }
 
-       public void DisplayPlayerBalance(Player player)
+        public void DisplayPlayerBalance(Player player)
         {
             player.DisplayBalance();
         }
+
+
+
 
         int numOfTotalDays = 7;
         public int NumberOfTotalDays
@@ -98,5 +115,22 @@ namespace Lemonade_Stand
                 numOfTotalDays = value;
             }
         }
+
+
+        public void AdjustInventory(Player player, Customer customer)
+        {
+            player.recipe.CupsUsed = customer.CustomersThatBuy;
+
+            player.inventory.Cups -= player.recipe.CupsUsed;
+            player.inventory.Sugar -= player.recipe.TotalSugarUsed;
+            player.inventory.Lemons -= player.recipe.TotalLemonsUsed;
+            player.inventory.IceCubes -= player.recipe.IceUsed;
+
+        }
+
+
+
+
+
     }
 }

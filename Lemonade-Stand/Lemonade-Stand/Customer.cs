@@ -13,11 +13,11 @@ namespace Lemonade_Stand
         //Weather weather = new Weather();
         Random rnd = new Random();
         public List<Customer> customer = new List<Customer>();
-        int potentialCustomers;
+        //int potentialCustomers;
         public double customerCash;
-        double customersThatBuy;
+        int customersThatBuy;
 
-        public double CustomersThatBuy
+        public int CustomersThatBuy
         {
             get
             {
@@ -36,18 +36,18 @@ namespace Lemonade_Stand
             return customerCash;
         }
 
-        public List<Customer> AddCustomers(Weather weather)
-        {
-            potentialCustomers = weather.ActualDailyTemperature / 2;
-            for (int i = 0; i < potentialCustomers; i++)
-            {
-                Customer newCustomer = new Customer();
-                newCustomer.SetCustomerCash();
-                customer.Add(newCustomer);
+        //public List<Customer> AddCustomers(Weather weather)
+        //{
+        //    potentialCustomers = weather.ActualDailyTemperature / 2;
+        //    for (int i = 0; i < potentialCustomers; i++)
+        //    {
+        //        Customer newCustomer = new Customer();
+        //        newCustomer.SetCustomerCash();
+        //        customer.Add(newCustomer);
                 
-            }
-            return customer;
-        }
+        //    }
+        //    return customer;
+        //}
 
 
         public void SetDemandByPrice(Recipe recipe)
@@ -126,27 +126,31 @@ namespace Lemonade_Stand
            
         }
 
-        public void SetCustomersThatPurchase(Recipe recipe)
+        public void SetCustomersThatPurchase(Recipe recipe, Inventory inventory)
         {
             if (customerDemand > 80 && customerCash > recipe.PricePerCup)
             {
                 customersThatBuy = rnd.Next(customer.Count - 10, customer.Count);
-                recipe.CupsUsed = customersThatBuy;
+                
+             
             }
             else if (customerDemand < 80 && customerDemand > 60 && customerCash > recipe.PricePerCup)
             {
                 customersThatBuy = rnd.Next(customer.Count - 15, customer.Count);
-                recipe.CupsUsed = customersThatBuy;
+                
+               
             }
             else if (customerDemand < 60 && customerDemand > 40 && customerCash > recipe.PricePerCup)
             {
                 customersThatBuy = rnd.Next(customer.Count - 20, customer.Count);
-                recipe.CupsUsed = customersThatBuy;
+                
+              
             }
             else if (customerDemand < 40 && customerCash > recipe.PricePerCup)
             {
                 customersThatBuy = rnd.Next(customer.Count - 25, customer.Count);
-                recipe.CupsUsed = customersThatBuy;
+                
+            
             }
         }
 
