@@ -10,7 +10,6 @@ namespace Lemonade_Stand
     {
         Day day = new Day();
         public Player player = new Player();
-        //Customer customer = new Customer();
         int i = 0;
 
       
@@ -58,13 +57,50 @@ namespace Lemonade_Stand
                 Console.WriteLine("");
                 player.recipe.GetSugarPerCup();
                 player.recipe.GetLemonsPerCup();
-
-                day.SetCustomerInformation(player);
+                day.SetDailyWeather();
+                day.weather.DisplayActualWeather();
+                day.AddCustomers(day.weather);
+                day.customer.SetCustomerCash();
+                day.customer.SetDemandByPrice(player.recipe);
+                day.customer.SetDamandByConditions(day.weather);
+                day.customer.SetDemandByRecipe(player.recipe);
+                day.SetCustomersThatPurchase(player.recipe, player.inventory);
+                day.GetTotalNumberofCupsSold(player, day.customer);
+                player.recipe.GetTotalLemonsUsedForTheDay();
+                player.recipe.GetTotalSugarUsedForTheDay();
+                day.AdjustInventory(player);
+                day.CalculateDailySales(player.recipe);
+                Console.WriteLine("");
+                day.DisplayDailySales();
+                day.CalculateDailyBalance(player);
+                Console.WriteLine("");
+                day.DisplayPlayerBalance(player);
+                Console.WriteLine("========================================================================");
+                Console.WriteLine("");
 
                 i++;
             }
 
             Console.WriteLine("You finshed! Your ending balance is $" + player.Balance);
+            Console.WriteLine("");
+            DisplayNetGainOrLoss();
+
+
+
+            void DisplayNetGainOrLoss()
+            {
+
+                if (player.Balance < 20)
+                {
+                    Console.WriteLine("Your net loss is $" + (20 - player.Balance));
+                }
+                else if (player.Balance > 20)
+                {
+                    Console.WriteLine("Your net gain is $" + (player.Balance - 20));
+                }
+            }
+
+
             Console.ReadLine();
         }
         

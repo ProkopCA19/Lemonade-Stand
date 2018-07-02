@@ -8,13 +8,12 @@ namespace Lemonade_Stand
 {
     class Day
     {
-        //Weather weather = new Weather();
-        //Customer customer = new Customer();
         List<Customer> customerList;
         public Weather weather;
         public Customer customer;
         double dailySales;
         int potentialCustomers;
+        Random rnd = new Random();
 
 
 
@@ -28,38 +27,12 @@ namespace Lemonade_Stand
 
         public void DisplayPredictedWeather()
         {
-            weather.DisplayPredictedWeather();
+           weather.DisplayPredictedWeather();
         }
         public void SetDailyWeather()
         {
             weather.GetActualTemperature();
             weather.GetActualDailyConditions();
-        }
-
-
-
-        public void SetCustomerInformation(Player player)
-
-        {
-            SetDailyWeather();
-            weather.DisplayActualWeather();
-            AddCustomers(weather);
-            customer.SetCustomerCash();
-            customer.SetDemandByPrice(player.recipe);
-            customer.SetDamandByConditions(weather);
-            customer.SetDemandByRecipe(player.recipe);
-            customer.SetCustomersThatPurchase(player.recipe, player.inventory);
-            /////////////////////////////////////////////////////////////
-            player.recipe.GetTotalLemonsUsedForTheDay();
-            player.recipe.GetTotalSugarUsedForTheDay();
-            //
-            AdjustInventory(player, customer);
-            CalculateDailySales(player.recipe);
-            DisplayDailySales();
-            CalculateDailyBalance(player);
-            DisplayPlayerBalance(player);
-            Console.WriteLine("");
-            Console.WriteLine("");
         }
 
 
@@ -78,9 +51,38 @@ namespace Lemonade_Stand
         }
 
 
+        public void SetCustomersThatPurchase(Recipe recipe, Inventory inventory)
+        {
+            if (customer.customerDemand > 80 && customer.customerCash > recipe.PricePerCup)
+            {
+                customer.CustomersThatBuy = rnd.Next(customerList.Count - 10, customerList.Count);
+
+
+            }
+            else if (customer.customerDemand < 80 && customer.customerDemand > 60 && customer.customerCash > recipe.PricePerCup)
+            {
+                customer.CustomersThatBuy = rnd.Next(customerList.Count - 15, customerList.Count);
+
+
+            }
+            else if (customer.customerDemand < 60 && customer.customerDemand > 40 && customer.customerCash > recipe.PricePerCup)
+            {
+               customer.CustomersThatBuy = rnd.Next(customerList.Count - 20, customerList.Count);
+
+
+            }
+            else if (customer.customerDemand < 40 && customer.customerCash > recipe.PricePerCup)
+            {
+                customer.CustomersThatBuy = rnd.Next(customerList.Count - 25, customerList.Count);
+
+
+            }
+        }
+
+
         public double CalculateDailySales(Recipe recipe)
         {
-            dailySales = recipe.PricePerCup * recipe.CupsUsed;
+            dailySales = recipe.PricePerCup * recipe.CupsSold;
             return dailySales;
         }
 
@@ -101,6 +103,22 @@ namespace Lemonade_Stand
         }
 
 
+        public void GetTotalNumberofCupsSold(Player player, Customer customer)
+        {
+            player.recipe.CupsSold = customer.CustomersThatBuy;
+        }
+
+
+
+        public void AdjustInventory(Player player)
+        {
+
+            player.inventory.Cups -= player.recipe.CupsSold;
+            player.inventory.Sugar -= player.recipe.TotalSugarUsed;
+            player.inventory.Lemons -= player.recipe.TotalLemonsUsed;
+            player.inventory.IceCubes -= player.recipe.IceUsed;
+
+        }
 
 
         int numOfTotalDays = 7;
@@ -114,18 +132,6 @@ namespace Lemonade_Stand
             {
                 numOfTotalDays = value;
             }
-        }
-
-
-        public void AdjustInventory(Player player, Customer customer)
-        {
-            player.recipe.CupsUsed = customer.CustomersThatBuy;
-
-            player.inventory.Cups -= player.recipe.CupsUsed;
-            player.inventory.Sugar -= player.recipe.TotalSugarUsed;
-            player.inventory.Lemons -= player.recipe.TotalLemonsUsed;
-            player.inventory.IceCubes -= player.recipe.IceUsed;
-
         }
 
 

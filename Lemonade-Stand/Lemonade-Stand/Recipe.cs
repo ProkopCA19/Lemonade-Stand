@@ -8,7 +8,7 @@ namespace Lemonade_Stand
 {
     class Recipe
     {
-        double cupsUsed;
+        double cupsSold;
         double lemonsUsed;
         double sugarUsed;
         double iceUsed;
@@ -115,15 +115,15 @@ namespace Lemonade_Stand
             }
         }
 
-        public double CupsUsed
+        public double CupsSold
         {
             get
             {
-                return cupsUsed;
+                return cupsSold;
             }
             set
             {
-                cupsUsed = value;
+                cupsSold = value;
             }
         }
 
@@ -154,13 +154,13 @@ namespace Lemonade_Stand
 
         public double GetTotalLemonsUsedForTheDay()
         {
-            double totalLemonsUsed = LemonsPerCup * CupsUsed;
+            double totalLemonsUsed = LemonsPerCup * CupsSold;
             return totalLemonsUsed;
         }
 
         public double GetTotalSugarUsedForTheDay()
         {
-            double totalSugarUsed = SugarPerCup * CupsUsed;
+            double totalSugarUsed = SugarPerCup * CupsSold;
             return totalSugarUsed;
         }
         public void DisplayRecipe()

@@ -8,12 +8,9 @@ namespace Lemonade_Stand
 {
     class Customer
     {
-        int customerDemand = 100;
-        //Recipe recipe = new Recipe();
-        //Weather weather = new Weather();
+        public int customerDemand = 100;
         Random rnd = new Random();
         public List<Customer> customer = new List<Customer>();
-        //int potentialCustomers;
         public double customerCash;
         int customersThatBuy;
 
@@ -35,19 +32,6 @@ namespace Lemonade_Stand
             customerCash = rnd.Next(1, 30) * .10;
             return customerCash;
         }
-
-        //public List<Customer> AddCustomers(Weather weather)
-        //{
-        //    potentialCustomers = weather.ActualDailyTemperature / 2;
-        //    for (int i = 0; i < potentialCustomers; i++)
-        //    {
-        //        Customer newCustomer = new Customer();
-        //        newCustomer.SetCustomerCash();
-        //        customer.Add(newCustomer);
-                
-        //    }
-        //    return customer;
-        //}
 
 
         public void SetDemandByPrice(Recipe recipe)
@@ -126,33 +110,6 @@ namespace Lemonade_Stand
            
         }
 
-        public void SetCustomersThatPurchase(Recipe recipe, Inventory inventory)
-        {
-            if (customerDemand > 80 && customerCash > recipe.PricePerCup)
-            {
-                customersThatBuy = rnd.Next(customer.Count - 10, customer.Count);
-                
-             
-            }
-            else if (customerDemand < 80 && customerDemand > 60 && customerCash > recipe.PricePerCup)
-            {
-                customersThatBuy = rnd.Next(customer.Count - 15, customer.Count);
-                
-               
-            }
-            else if (customerDemand < 60 && customerDemand > 40 && customerCash > recipe.PricePerCup)
-            {
-                customersThatBuy = rnd.Next(customer.Count - 20, customer.Count);
-                
-              
-            }
-            else if (customerDemand < 40 && customerCash > recipe.PricePerCup)
-            {
-                customersThatBuy = rnd.Next(customer.Count - 25, customer.Count);
-                
-            
-            }
-        }
 
         public void DisplayTotalCustomersForTheDay()
         {

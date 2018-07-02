@@ -34,8 +34,7 @@ namespace Lemonade_Stand
         }
 
 
-        public void DisplayBalance()
-        {
+        public void DisplayBalance() 
             Console.WriteLine("Your balance is $" + balance);
         }
 
@@ -180,7 +179,7 @@ namespace Lemonade_Stand
             try
             {
 
-                recipe.LemonsUsed += Int32.Parse(Console.ReadLine());
+                recipe.LemonsUsed += Double.Parse(Console.ReadLine());
                 inventory.Lemons -= recipe.LemonsUsed;
                 
             }
@@ -197,7 +196,7 @@ namespace Lemonade_Stand
             try
             {
 
-                recipe.SugarUsed += Int32.Parse(Console.ReadLine());
+                recipe.SugarUsed += Double.Parse(Console.ReadLine());
                 inventory.Sugar -= recipe.SugarUsed;
                 
             }
@@ -213,7 +212,7 @@ namespace Lemonade_Stand
             Console.WriteLine("How many icecubes would you like to use per cup?");
             try
             {
-                recipe.IceUsed += Int32.Parse(Console.ReadLine());
+                recipe.IceUsed += Double.Parse(Console.ReadLine());
                 inventory.IceCubes -= recipe.IceUsed;
                 
             }
