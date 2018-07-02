@@ -34,7 +34,8 @@ namespace Lemonade_Stand
         }
 
 
-        public void DisplayBalance() 
+        public void DisplayBalance()
+        { 
             Console.WriteLine("Your balance is $" + balance);
         }
 

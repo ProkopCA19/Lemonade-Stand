@@ -55,6 +55,7 @@ namespace Lemonade_Stand
                 Console.WriteLine("");
                 Console.WriteLine("Now its time to open the stand!");
                 Console.WriteLine("");
+           
                 player.recipe.GetSugarPerCup();
                 player.recipe.GetLemonsPerCup();
                 day.SetDailyWeather();
